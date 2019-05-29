@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 <title>Title</title>
 </head>
 <body>
@@ -62,7 +62,7 @@
     <textarea name="observacoes" id="obj" cols="30" rows="10">  
 
     </textarea><br>
-    <button class="btn btn-success mt-2" id="button">Enviar</button>
+    <button type="submit" class="btn btn-success mt-2" id="button">Enviar</button>
    
 
   </form> 
@@ -79,13 +79,50 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="/js/schedule.js" type="text/javascript"></script>
-<script src="/js/create.js" type="text/javascript"></script>
+<!-- script src="./js/schedule.js" type="text/javascript"></script-->
+<script src="./js/create.js" type="text/javascript"></script>
 </body>
 </html>
 
   <!-- main code  -->
   <script>
+
+$(document).ready(function(){
+$('#button').on('click', function(e){
+     
+    e.preventDefault();
+    
+    var name = $('#names').val();
+    
+    var rg = $('#rg').val();  
+    var cpf = $('#cpf').val(); 
+    var dataNasc = $('#dataNasc').val();
+    var endereco=  $('#endereco').val();
+    var phone=  $('#phone').val();
+    var email= $('#email').val();
+    var dataConsulta=  $('#dataConsulta').val();
+    var obj= $('#obj').val(); 
+   // data: "name, rg, cpf, dataNasc, endereco, phone, email, dataConsulta, obj",
+    e.preventDefault();
+
+   $.ajax({ 
+       // url: "./db/create.php",
+       url: "create2.php",
+        data: "name, rg, cpf, dataNasc, endereco, phone, email, dataConsulta, obj",
+        type: 'post',
+        //dataType:'json',
+     success: function(response) {
+                  alert(response);
+              },
+      error: function(request, status, error){
+        alert("Error: Could not delete");
+      }
+    });
+   
+
+ });
+
+});
 
     
 </script>

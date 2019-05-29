@@ -19,7 +19,8 @@ catch(PDOException $e)
   
     $data = $_POST;
     $name = $data['name'];
-    $rg = $data['rg'];
+    echo $name;
+  /*  $rg = $data['rg'];
     $cpf = $data['cpf'];
     $enereco = $data['endereco'];
     $phone = $data['phone'];
@@ -28,7 +29,7 @@ catch(PDOException $e)
     $obj = $data['obj'];
 
   
-/*
+
 
 
  try{
@@ -44,5 +45,6 @@ catch(PDOException $e)
     {
        echo "Connection failed: " . $e->getMessage();
     }
-     */ 
+     
     echo json_encode($name);
+*/

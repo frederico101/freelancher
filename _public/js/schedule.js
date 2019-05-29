@@ -1,3 +1,4 @@
+$(document).ready(function(){
 $('#button').on('click', function(e){
      
     e.preventDefault();
@@ -12,20 +13,23 @@ $('#button').on('click', function(e){
     var email= $('#email').val();
     var dataConsulta=  $('#dataConsulta').val();
     var obj= $('#obj').val(); 
-   // data: "name, rg, cpf, dataNasc, endereco, phone, email, dataConsulta, obj",
+   
     e.preventDefault();
 
-    $.ajax({ 
-        url: "/db/create.php",
+   $.ajax({ 
+        url: "./db/create.php",
         data: "name, rg, cpf, dataNasc, endereco, phone, email, dataConsulta, obj",
         type: 'post',
         dataType:'json',
-     success: function(output) {
-                  alert(output);
+     success: function(response) {
+                  alert(response);
               },
       error: function(request, status, error){
         alert("Error: Could not delete");
       }
-});
+    });
+   
+
+ });
 
 });
